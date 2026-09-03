@@ -1,6 +1,8 @@
 import { Shield, Globe, Landmark, Phone, Mail } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
-import logoImg from "../assets/images/logo.jpg";
+import localLogoIcon from "../assets/images/logo_icon.png";
+
+const PESA_LOGO_URL = "https://xfeg8njgd8cjaipf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-09-04%20at%2004.45.28.jpeg";
 
 interface FooterProps {
   onNavigate: (path: string) => void;
@@ -11,20 +13,23 @@ export default function Footer({ onNavigate }: FooterProps) {
   const { language, setLanguage, t } = useLanguage();
 
   return (
-    <footer className="bg-slate-950 text-white pt-16 pb-12 border-t border-slate-800" id="app-footer">
+    <footer className="bg-slate-950 text-white pt-16 pb-12 sm:pb-16 border-t border-slate-800" id="app-footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Footer Link Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 text-center md:text-left">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8 text-center sm:text-left">
           
           {/* Brand Col */}
-          <div className="md:col-span-5 space-y-4">
-            <div className="flex flex-col items-center md:items-start gap-1.5">
-              <div className="w-12 h-12 rounded-lg bg-white flex items-center justify-center overflow-hidden border border-slate-800 shadow-sm">
+          <div className="sm:col-span-2 md:col-span-5 space-y-4">
+            <div className="flex flex-col items-center sm:items-start gap-1.5">
+              <div className="w-12 h-12 rounded-lg bg-white flex items-center justify-center overflow-hidden border border-slate-700 shadow-sm p-1">
                 <img 
-                  src={logoImg} 
+                  src={PESA_LOGO_URL} 
                   alt="PESA Consulting Group Logo" 
-                  className="w-full h-full object-contain p-1"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = localLogoIcon;
+                  }}
+                  className="w-full h-full object-contain"
                   referrerPolicy="no-referrer"
                 />
               </div>

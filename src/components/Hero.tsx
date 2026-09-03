@@ -94,7 +94,7 @@ export default function Hero() {
           </p>
           
           <h1 
-            className="font-sans text-4xl sm:text-5xl md:text-6xl text-white font-extrabold tracking-tight leading-[1.1] mb-6"
+            className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-extrabold tracking-tight leading-[1.1] mb-6"
             style={{ textShadow: "0 2px 10px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.9)" }}
           >
             We Provide <span className="text-blue-400 font-black">Real Solutions</span> <br className="hidden sm:inline" />

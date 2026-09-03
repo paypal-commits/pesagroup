@@ -151,7 +151,7 @@ export default function AboutUs({ onNavigate }: AboutUsProps) {
                   className="w-full h-[420px] object-cover"
                 />
               </div>
-              <div className="absolute -top-4 -left-4 bg-[#0A2540] text-blue-300 font-mono text-[10px] uppercase tracking-widest px-4 py-2 rounded-lg border border-slate-800 shadow-md">
+              <div className="absolute top-3 left-3 sm:-top-4 sm:-left-4 bg-[#0A2540] text-blue-300 font-mono text-[10px] uppercase tracking-widest px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg border border-slate-800 shadow-md">
                 {t("Corporate Headquarters")}
               </div>
             </div>

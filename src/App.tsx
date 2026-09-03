@@ -75,7 +75,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 selection:bg-blue-100 selection:text-[#0A2540]" id="pesa-app-root">
+    <div className="min-h-screen flex flex-col bg-slate-50 selection:bg-blue-100 selection:text-[#0A2540] w-full max-w-full overflow-x-hidden relative" id="pesa-app-root">
       
       {/* 1. Header Navigation Bar */}
       <Header currentPath={currentPath} onNavigate={navigateTo} />

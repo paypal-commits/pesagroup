@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { Menu, X, Shield, Globe, ArrowUpRight, ChevronDown } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
-import logoImg from "../assets/images/logo.jpg";
+import localLogoIcon from "../assets/images/logo_icon.png";
+
+// User-provided high-definition logo URL with robust local fallback
+const PESA_LOGO_URL = "https://xfeg8njgd8cjaipf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-09-04%20at%2004.45.28.jpeg";
 
 interface HeaderProps {
   currentPath: string;
@@ -39,22 +42,25 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
           {/* Logo Brand Signature */}
           <div 
             onClick={() => handleNavClick("/")}
-            className="flex items-center gap-3 cursor-pointer select-none group"
+            className="flex items-center gap-2.5 sm:gap-3 cursor-pointer select-none group min-w-0"
             id="brand-logo-trigger"
           >
-            <div className="w-12 h-12 rounded-lg bg-white flex items-center justify-center overflow-hidden border border-slate-200 shadow-sm transition-colors group-hover:border-blue-300">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-white flex items-center justify-center shrink-0 overflow-hidden border border-slate-200 shadow-sm transition-colors group-hover:border-blue-400 p-1">
               <img 
-                src={logoImg} 
+                src={PESA_LOGO_URL} 
                 alt="PESA Consulting Group Logo" 
-                className="w-full h-full object-contain p-1"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = localLogoIcon;
+                }}
+                className="w-full h-full object-contain"
                 referrerPolicy="no-referrer"
               />
             </div>
-            <div className="flex flex-col">
-              <span className="font-sans text-base sm:text-lg font-extrabold tracking-tight text-slate-900 uppercase">
+            <div className="flex flex-col min-w-0">
+              <span className="font-sans text-sm sm:text-base lg:text-lg font-extrabold tracking-tight text-slate-900 uppercase truncate">
                 {t("PESA Consulting")}
               </span>
-              <span className="text-[9px] text-slate-500 font-mono tracking-widest uppercase -mt-1 font-semibold">
+              <span className="text-[8px] sm:text-[9px] text-slate-500 font-mono tracking-widest uppercase -mt-0.5 sm:-mt-1 font-semibold truncate">
                 {t("Group & Global Capital")}
               </span>
             </div>
@@ -97,11 +103,6 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
               >
                 FR
               </button>
-            </div>
-
-            <div className="flex items-center gap-1.5 px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded text-[9px] font-mono font-medium text-slate-600">
-              <Globe className="w-3.5 h-3.5 text-blue-500 animate-spin-slow" />
-              <span>{t("Dallas // Kinshasa Hubs")}</span>
             </div>
             
             <button
@@ -146,8 +147,8 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
 
       {/* Mobile Drawer Navigation */}
       {isMobileMenuOpen && (
-        <div className="xl:hidden bg-white border-b border-slate-200 p-4 space-y-3 shadow-lg animate-in fade-in slide-in-from-top-4 duration-300" id="mobile-navigation-drawer">
-          <div className="flex flex-col gap-2">
+        <div className="xl:hidden bg-white border-b border-slate-200 p-4 space-y-3 shadow-xl max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain animate-in fade-in slide-in-from-top-2 duration-200" id="mobile-navigation-drawer">
+          <div className="flex flex-col gap-1.5">
             {navItems.map((item) => {
               const isActive = currentPath === item.path || (item.path !== "/" && currentPath.startsWith(item.path));
               return (
@@ -155,10 +156,10 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
                   key={item.path}
                   onClick={() => handleNavClick(item.path)}
                   id={`mobile-nav-link-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
-                  className={`text-left px-4 py-2.5 rounded text-xs uppercase font-mono tracking-wider transition-colors cursor-pointer ${
+                  className={`text-left px-4 py-3 min-h-[44px] rounded-lg text-xs uppercase font-mono tracking-wider transition-colors cursor-pointer flex items-center ${
                     isActive
-                      ? "bg-blue-50 text-blue-600 font-semibold"
-                      : "text-slate-600 hover:bg-slate-50"
+                      ? "bg-blue-50 text-blue-600 font-bold"
+                      : "text-slate-700 hover:bg-slate-50 font-medium"
                   }`}
                 >
                   {t(item.label)}
@@ -167,23 +168,23 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
             })}
           </div>
 
-          <div className="pt-3 border-t border-slate-200 flex flex-col gap-2.5">
-            <div className="flex items-center justify-between px-4">
+          <div className="pt-3 border-t border-slate-200 flex flex-col gap-3 pb-2">
+            <div className="flex items-center justify-between px-2">
               <div className="flex items-center gap-2 text-xs text-slate-600 font-mono font-medium">
-                <Globe className="w-4 h-4 text-blue-500" />
-                <span>{t("Dallas // Kinshasa Hubs")}</span>
+                <Globe className="w-4 h-4 text-blue-500 shrink-0" />
+                <span className="text-[11px]">{t("Dallas // Kinshasa Hubs")}</span>
               </div>
               
               <div className="flex items-center bg-slate-100 p-0.5 rounded border border-slate-200" id="mobile-drawer-lang-selector">
                 <button 
                   onClick={() => setLanguage('en')}
-                  className={`px-2 py-0.5 text-[9px] font-mono font-bold rounded transition-all cursor-pointer ${language === 'en' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500'}`}
+                  className={`px-3 py-1 text-[10px] font-mono font-bold rounded transition-all cursor-pointer ${language === 'en' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500'}`}
                 >
                   EN
                 </button>
                 <button 
                   onClick={() => setLanguage('fr')}
-                  className={`px-2 py-0.5 text-[9px] font-mono font-bold rounded transition-all cursor-pointer ${language === 'fr' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500'}`}
+                  className={`px-3 py-1 text-[10px] font-mono font-bold rounded transition-all cursor-pointer ${language === 'fr' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500'}`}
                 >
                   FR
                 </button>
@@ -193,9 +194,10 @@ export default function Header({ currentPath, onNavigate }: HeaderProps) {
             <button
               onClick={() => handleNavClick("/contact")}
               id="mobile-header-cta-btn"
-              className="w-full text-center py-3 text-xs uppercase font-mono tracking-widest bg-[#0A2540] text-white hover:bg-slate-800 rounded font-semibold transition-colors cursor-pointer"
+              className="w-full text-center py-3.5 min-h-[44px] text-xs uppercase font-mono tracking-widest bg-[#0A2540] hover:bg-slate-800 text-white rounded-lg font-semibold transition-colors cursor-pointer shadow flex items-center justify-center gap-2"
             >
-              {t("Inquire Securely")}
+              <span>{t("Inquire Securely")}</span>
+              <ArrowUpRight className="w-4 h-4 text-blue-400" />
             </button>
           </div>
         </div>

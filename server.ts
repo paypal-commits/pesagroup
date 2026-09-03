@@ -29,6 +29,10 @@ if (apiKey) {
 
 app.use(express.json());
 
+// Serve public static assets (favicons, logos, icons)
+const publicPath = path.join(process.cwd(), "public");
+app.use(express.static(publicPath));
+
 // API route for chatbot conversation
 app.post("/api/chat", async (req, res) => {
   try {

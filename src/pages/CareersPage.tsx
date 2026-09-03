@@ -140,7 +140,7 @@ export default function CareersPage() {
             </p>
           </div>
 
-          {/* FEATURED POSITION: GLOBAL PROJECT LEAD (HERITIER BONGOMBE'S FORMER ROLE NOW OPEN) */}
+          {/* FEATURED POSITION: GLOBAL PROJECT LEAD (IMMEDIATE OPENING) */}
           <div className="mb-10 bg-gradient-to-br from-slate-950 via-[#0A2540] to-slate-900 text-white rounded-2xl border border-blue-500/30 p-6 sm:p-10 shadow-2xl relative overflow-hidden" id="featured-job-global-project-lead">
             <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
             

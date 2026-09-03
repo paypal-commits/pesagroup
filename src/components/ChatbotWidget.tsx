@@ -2,6 +2,9 @@ import React, { useState, useRef, useEffect } from "react";
 import { MessageSquare, X, Send, HelpCircle, ArrowUpRight, ShieldCheck } from "lucide-react";
 import { ChatMessage } from "../types";
 import { useLanguage } from "../context/LanguageContext";
+import localLogoIcon from "../assets/images/logo_icon.png";
+
+const PESA_LOGO_URL = "https://xfeg8njgd8cjaipf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-09-04%20at%2004.45.28.jpeg";
 
 export default function ChatbotWidget() {
   const [isOpen, setIsOpen] = useState(false);
@@ -106,18 +109,26 @@ export default function ChatbotWidget() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end" id="pesa-chatbot-widget">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end" id="pesa-chatbot-widget">
       {/* 1. Chat Window */}
       {isOpen && (
         <div 
-          className="w-[340px] sm:w-[380px] h-[450px] max-h-[calc(100vh-180px)] rounded-2xl shadow-2xl border border-slate-200 bg-white flex flex-col overflow-hidden mb-4 animate-in fade-in slide-in-from-bottom-6 duration-300"
+          className="w-[calc(100vw-2rem)] sm:w-[380px] max-w-[380px] h-[480px] max-h-[calc(100dvh-5.5rem)] rounded-2xl shadow-2xl border border-slate-200 bg-white flex flex-col overflow-hidden mb-3 sm:mb-4 animate-in fade-in slide-in-from-bottom-4 duration-200"
           id="chat-window-container"
         >
           {/* Header */}
-          <div className="bg-gradient-to-r from-slate-900 to-[#0A2540] p-4 text-white flex items-center justify-between border-b border-blue-500/20">
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center text-white font-sans font-extrabold text-sm shadow shadow-blue-500/30">
-                P
+          <div className="bg-gradient-to-r from-slate-900 to-[#0A2540] p-3.5 sm:p-4 text-white flex items-center justify-between border-b border-blue-500/20">
+            <div className="flex items-center gap-2.5 sm:gap-3">
+              <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center overflow-hidden border border-blue-400/40 shadow shadow-blue-500/30 p-1 shrink-0">
+                <img 
+                  src={PESA_LOGO_URL} 
+                  alt="PESA" 
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = localLogoIcon;
+                  }}
+                  className="w-full h-full object-contain"
+                  referrerPolicy="no-referrer"
+                />
               </div>
               <div>
                 <h4 className="font-sans text-sm font-bold tracking-wide text-blue-300">{t("PESA Ambassador")}</h4>
@@ -129,7 +140,8 @@ export default function ChatbotWidget() {
             </div>
             <button 
               onClick={() => setIsOpen(false)}
-              className="p-1 rounded-full hover:bg-white/10 text-slate-300 hover:text-white transition-colors"
+              className="p-2 rounded-full hover:bg-white/10 text-slate-300 hover:text-white transition-colors cursor-pointer min-w-[36px] min-h-[36px] flex items-center justify-center"
+              aria-label="Close Chat"
               id="close-chat-btn"
             >
               <X className="w-5 h-5" />
@@ -206,7 +218,7 @@ export default function ChatbotWidget() {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               placeholder={t("Ask about PESA services, team...")}
-              className="flex-1 bg-slate-50 hover:bg-slate-100/50 focus:bg-white border border-slate-200 rounded-full px-4 py-2 text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all font-sans"
+              className="flex-1 bg-slate-50 hover:bg-slate-100/50 focus:bg-white border border-slate-200 rounded-full px-4 py-2.5 text-base sm:text-xs text-slate-800 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all font-sans"
               id="chatbot-input-field"
             />
             <button 
