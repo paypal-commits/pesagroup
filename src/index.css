@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-navy-50: #f4f7fa;
+  --color-navy-100: #e2eaf0;
+  --color-navy-200: #cad6e2;
+  --color-navy-300: #a7bbce;
+  --color-navy-400: #7a9bb7;
+  --color-navy-500: #577ca1;
+  --color-navy-600: #426184;
+  --color-navy-700: #364e6b;
+  --color-navy-800: #2c4058;
+  --color-navy-900: #0a2540;
+
+  --color-accent-blue-50: #eff6ff;
+  --color-accent-blue-100: #dbeafe;
+  --color-accent-blue-200: #bfdbfe;
+  --color-accent-blue-300: #93c5fd;
+  --color-accent-blue-400: #60a5fa;
+  --color-accent-blue-500: #3b82f6;
+  --color-accent-blue-600: #2563eb;
+  --color-accent-blue-700: #1d4ed8;
+  --color-accent-blue-800: #1e40af;
+  --color-accent-blue-900: #1e3a8a;
+  
+  /* Fallbacks for gold references so nothing breaks but displays in professional accent */
+  --color-gold-50: #eff6ff;
+  --color-gold-100: #dbeafe;
+  --color-gold-200: #bfdbfe;
+  --color-gold-300: #93c5fd;
+  --color-gold-400: #60a5fa;
+  --color-gold-500: #3b82f6;
+  --color-gold-600: #2563eb;
+  --color-gold-700: #1d4ed8;
+  --color-gold-800: #1e40af;
+  --color-gold-900: #1e3a8a;
+}
+
+@layer utilities {
+  /* Premium Glassmorphism with professional theme colors */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+  }
+  
+  .dark-glass-card {
+    background: rgba(10, 37, 64, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Animated background mesh: Slate-50 base with sleek blue accents */
+  .mesh-bg {
+    background-color: #F8FAFC;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.04) 0, transparent 50%), 
+      radial-gradient(at 50% 0%, rgba(10, 37, 64, 0.03) 0, transparent 50%), 
+      radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.04) 0, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(10, 37, 64, 0.03) 0, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.04) 0, transparent 50%);
+  }
+
+  /* Hide scrollbars but keep behavior */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Custom interactive effects */
+.hover-gold-glow:hover {
+  box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.35);
+}
+
+.hover-blue-glow:hover {
+  box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #F8FAFC;
+  color: #0F172A;
+  overflow-x: hidden;
+}
