@@ -3,7 +3,8 @@ import {
   Compass, Cpu, RefreshCw, Users, Briefcase, Layers, Zap, BarChart3, 
   Shield, TrendingUp, GraduationCap, Landmark, Building, Globe, 
   ArrowRight, CheckCircle, ChevronLeft, ChevronRight, Award, 
-  Clock, ShieldAlert, Star, Mail, ArrowUpRight, Check, MapPin, Home as HomeIcon
+  Clock, ShieldAlert, Star, Mail, ArrowUpRight, Check, MapPin, Home as HomeIcon,
+  Truck, Anchor
 } from "lucide-react";
 import { servicesDetailList } from "../servicesData";
 import { useLanguage } from "../context/LanguageContext";
@@ -966,6 +967,109 @@ export default function Home({ onNavigate }: HomeProps) {
 
             </div>
 
+          </div>
+
+        </div>
+      </section>
+
+      {/* ================= FEATURED BUSINESS SECTOR: SOMPTUEUX MINERALS ================= */}
+      <section className="py-24 bg-gradient-to-b from-slate-900 to-slate-950 text-white relative overflow-hidden border-t border-b border-slate-800" id="featured-minerals">
+        <div className="absolute inset-0 bg-[radial-gradient(#3B82F6_1px,transparent_1px)] [background-size:32px_32px] opacity-10 pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/30 text-[10px] font-mono uppercase tracking-widest font-extrabold">
+              <Truck className="w-3.5 h-3.5 text-blue-400" />
+              <span>Somptueux Minerals • DRC Sector</span>
+            </div>
+            <h2 className="font-sans text-3xl sm:text-4xl text-white font-extrabold tracking-tight">
+              {language === "en" 
+                ? "Mining • Mineral Logistics • Transportation • Investment" 
+                : "Mines • Logistique Minérale • Transport • Investissement"}
+            </h2>
+            <p className="font-serif italic text-blue-400 text-lg sm:text-xl">
+              "{language === "en" ? "Connecting Mineral Resources to Global Markets" : "Connecter les Ressources Minières aux Marchés Mondiaux"}"
+            </p>
+            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-sans max-w-2xl mx-auto">
+              {language === "en"
+                ? "Developing reliable mineral transportation and logistics infrastructure in the Democratic Republic of Congo (DRC) connecting mining operations with processing facilities, warehouses, and international supply chains."
+                : "Développement d'infrastructures de transport et de logistique minérale fiables en République Démocratique du Congo (RDC), reliant les exploitations minières aux usines de traitement, entrepôts et chaînes d'approvisionnement mondiales."}
+            </p>
+            <div className="w-12 h-[2px] bg-blue-500 mx-auto mt-4"></div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-7 space-y-6">
+              <div className="space-y-4">
+                <h3 className="font-sans text-xl sm:text-2xl font-bold text-white">
+                  {language === "en" 
+                    ? "Building the Logistics Infrastructure Behind the DRC's Mineral Economy" 
+                    : "Bâtir l'Infrastructure Logistique au Cœur de l'Économie Minière"}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  {language === "en"
+                    ? "PESA Group is seeking strategic investors, financial partners, logistics companies and industry partners to participate in the development of reliable mineral transportation and logistics infrastructure."
+                    : "Le Groupe PESA recherche des investisseurs stratégiques, des partenaires financiers, des compagnies logistiques et des acteurs industriels pour participer au développement d'une infrastructure de transport minier pérenne."}
+                </p>
+              </div>
+
+              {/* Approach chain teaser */}
+              <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+                <span className="text-[10px] font-mono uppercase text-blue-400 font-bold tracking-widest block">
+                  {language === "en" ? "Integrated Value Chain Pipeline" : "Chaîne de Valeur Intégrée"}
+                </span>
+                <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-slate-200">
+                  <span className="bg-slate-800 px-2 py-1 rounded">Mining Site</span>
+                  <span className="text-blue-500">→</span>
+                  <span className="bg-slate-800 px-2 py-1 rounded">Collection</span>
+                  <span className="text-blue-500">→</span>
+                  <span className="bg-slate-800 px-2 py-1 rounded">Transportation</span>
+                  <span className="text-blue-500">→</span>
+                  <span className="bg-slate-800 px-2 py-1 rounded">Storage</span>
+                  <span className="text-blue-500">→</span>
+                  <span className="bg-slate-800 px-2 py-1 rounded">Processing</span>
+                  <span className="text-blue-500">→</span>
+                  <span className="bg-slate-800 px-2 py-1 rounded">Export</span>
+                </div>
+              </div>
+
+              {/* Action buttons */}
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <button
+                  onClick={() => onNavigate("/minerals")}
+                  className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-mono uppercase tracking-widest font-bold shadow-lg shadow-blue-600/30 transition-all flex items-center gap-2 cursor-pointer active:scale-95"
+                >
+                  <span>{language === "en" ? "Explore Somptueux Minerals" : "Découvrir Somptueux Minerals"}</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+
+                <button
+                  onClick={() => onNavigate("/minerals")}
+                  className="px-6 py-3 bg-transparent hover:bg-white/5 text-slate-300 hover:text-white border border-slate-700 rounded-lg text-xs font-mono uppercase tracking-widest font-bold transition-all flex items-center gap-2 cursor-pointer active:scale-95"
+                >
+                  <span>{language === "en" ? "Invest With Us" : "Investir avec Nous"}</span>
+                  <ArrowUpRight className="w-4 h-4 text-blue-400" />
+                </button>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5">
+              <div className="rounded-2xl overflow-hidden border border-slate-800 shadow-2xl relative group">
+                <img 
+                  src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=800" 
+                  alt="Somptueux Minerals Fleet Logistics" 
+                  className="w-full h-80 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent p-6 flex flex-col justify-end">
+                  <span className="text-[10px] font-mono text-blue-400 uppercase tracking-widest font-bold">DRC Infrastructure</span>
+                  <p className="text-xs text-slate-300 font-sans mt-1">
+                    {language === "en" 
+                      ? "Heavy-duty truck fleets, secured regional hubs, and cross-border mineral logistics corridors." 
+                      : "Flottes de camions lourds, hubs régionaux sécurisés et corridors logistiques transfrontaliers."}
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>

@@ -66,6 +66,8 @@ export default function Footer({ onNavigate }: FooterProps) {
                 { path: "/about", label: "About History" },
                 { path: "/system", label: "PESA System Core" },
                 { path: "/team", label: "Executive Biographies" },
+                { path: "/realty", label: "Somptueux Realty LLC" },
+                { path: "/minerals", label: "Somptueux Minerals" },
                 { path: "/offices", label: "Global Hubs" },
                 { path: "/careers", label: "Careers & Internships" },
                 { path: "/resources", label: "Insights & FAQs" }
@@ -108,10 +110,17 @@ export default function Footer({ onNavigate }: FooterProps) {
 
         </div>
 
-        {/* Global disclaimer on corporate operations */}
-        <p className="text-slate-500 text-[10px] leading-relaxed max-w-4xl mx-auto text-center font-sans border-t border-slate-900 pt-8">
-          {t("PESA Consulting Group LLC is an independent global consulting firm. Operational support, technical auditing, and strategic outsourcing solutions adhere to local legal, tax, and licensing frameworks in the Democratic Republic of Congo and the State of Texas. PESA maintains a strict zero-cash payment policy.")}
-        </p>
+        {/* Global disclaimer on corporate operations & statutory notices */}
+        <div className="space-y-3 border-t border-slate-900 pt-8 text-center max-w-4xl mx-auto">
+          <p className="text-slate-500 text-[10px] leading-relaxed font-sans">
+            {t("PESA Consulting Group LLC is an independent global consulting firm. Operational support, technical auditing, and strategic outsourcing solutions adhere to local legal, tax, and licensing frameworks in the Democratic Republic of Congo and the State of Texas. PESA maintains a strict zero-cash payment policy.")}
+          </p>
+          <p className="text-slate-500 text-[10px] leading-relaxed font-sans">
+            {language === "en"
+              ? "Investment opportunities are subject to project feasibility, due diligence, applicable laws and regulatory requirements and appropriate investment agreements. Texas law requires all real estate license holders to give the Information About Brokerage Services to prospective buyers, tenants, sellers and landlords."
+              : "Les opportunités d'investissement sont soumises à la faisabilité des projets, à la diligence raisonnable, aux lois et exigences réglementaires applicables ainsi qu'aux contrats d'investissement appropriés. La loi du Texas exige que tous les titulaires d'une licence immobilière fournissent les Informations sur les Services de Courtage aux acheteurs, locataires, vendeurs et propriétaires potentiels."}
+          </p>
+        </div>
 
         {/* Development attribution + copyright block + Language option */}
         <div className="pt-8 border-t border-slate-900 flex flex-col items-center gap-4 text-center">

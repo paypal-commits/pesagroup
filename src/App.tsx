@@ -16,6 +16,7 @@ import ResourcesPage from "./pages/ResourcesPage";
 import ContactPage from "./pages/ContactPage";
 import ServiceDetailComponent from "./pages/ServiceDetail";
 import SomptueuxRealty from "./pages/SomptueuxRealty";
+import SomptueuxMinerals from "./pages/SomptueuxMinerals";
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState("/");
@@ -50,6 +51,9 @@ export default function App() {
     }
     if (currentPath === "/realty") {
       return <SomptueuxRealty />;
+    }
+    if (currentPath === "/minerals") {
+      return <SomptueuxMinerals onNavigate={navigateTo} />;
     }
     if (currentPath === "/offices") {
       return <OfficesPage />;

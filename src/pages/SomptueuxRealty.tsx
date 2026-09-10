@@ -437,13 +437,20 @@ export default function SomptueuxRealty() {
                 </div>
 
                 {/* Secure compliance footer */}
-                <div className="p-3 bg-slate-50 border border-slate-150 rounded-lg flex items-start gap-2.5 text-[10px] text-slate-500 leading-normal">
-                  <ShieldCheck className="w-4.5 h-4.5 text-blue-600 shrink-0" />
-                  <span>
+                <div className="p-3 bg-slate-50 border border-slate-150 rounded-lg flex flex-col gap-2 text-[10px] text-slate-500 leading-normal">
+                  <div className="flex items-start gap-2.5">
+                    <ShieldCheck className="w-4.5 h-4.5 text-blue-600 shrink-0 mt-0.5" />
+                    <span>
+                      {language === "en"
+                        ? "In compliance with Texas Real Estate Commission (TREC) guidelines and federal fair housing acts, Somptueux Realty LLC represents clients under written broker service agreements only. Absolute privacy is maintained."
+                        : "Conformément aux directives de la Texas Real Estate Commission (TREC) et aux lois fédérales sur le logement équitable, Somptueux Realty LLC représente ses clients uniquement en vertu de contrats écrits de courtage."}
+                    </span>
+                  </div>
+                  <p className="border-t border-slate-200 pt-2 font-mono text-[9px] text-slate-600 uppercase tracking-tight">
                     {language === "en"
-                      ? "In compliance with Texas Real Estate Commission (TREC) guidelines and federal fair housing acts, Somptueux Realty LLC represents clients under written broker service agreements only. Absolute privacy is maintained."
-                      : "Conformément aux directives de la Texas Real Estate Commission (TREC) et aux lois fédérales sur le logement équitable, Somptueux Realty LLC représente ses clients uniquement en vertu de contrats écrits de courtage."}
-                  </span>
+                      ? "Texas law requires all real estate license holders to give the Information About Brokerage Services to prospective buyers, tenants, sellers and landlords."
+                      : "La loi du Texas exige que tous les titulaires d'une licence immobilière fournissent les Informations sur les Services de Courtage aux acheteurs, locataires, vendeurs et propriétaires potentiels."}
+                  </p>
                 </div>
 
                 <div className="pt-2">
